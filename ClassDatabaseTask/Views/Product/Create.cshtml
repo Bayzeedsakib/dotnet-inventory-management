@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Product</h1>
+
+<form method="post">
+
+    <input type="text" name="Name" placeholder="Product Name" />
+    <br /><br />
+
+    <input type="text" name="Price" placeholder="Price" />
+    <br /><br />
+
+    <select name="Cid">
+
+        <option value="">Select Category</option>
+
+        @foreach (var item in ViewBag.Categories)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+
+    </select>
+
+    <br /><br />
+
+    <button type="submit">Create</button>
+
+</form>
+
+    

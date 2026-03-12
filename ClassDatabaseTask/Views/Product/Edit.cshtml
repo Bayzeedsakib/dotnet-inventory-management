@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Product</h1>
+
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id"/>
+
+    <input type="text" name="Name" value="@Model.Name" class="form-control" placeholder="Name" />
+    <input type="text" name="Price" value="@Model.Price" class="form-control" placeholder="Price" />
+
+    <select name="Cid" class="form-control">
+        @foreach (var item in ViewBag.Categories)
+        {
+            <option value="@item.Id" selected="@(item.Id == Model.Cid)">
+                @item.Name
+            </option>
+        }
+    </select>
+
+    <br />
+
+    <input type="submit" value="Edit" class="btn btn-primary" />
+</form>
