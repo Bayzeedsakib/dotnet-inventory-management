@@ -13,7 +13,7 @@
         <th>Id</th>
         <th>Name</th>
         <th>Price</th>
-        <th>Cid</th>
+        <th>Category</th>
         <th>Details</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -26,7 +26,7 @@
             <td>@item.Id</td>
             <td>@item.Name</td>
             <td>@item.Price</td>
-            <td>@item.Cid</td>
+            <td>@item.CidNavigation.Name</td>
             <td><a href="/Product/Details/@item.Id">Details</a></td>
             <td><a href="/Product/Edit/@item.Id">Edit</a></td>
 

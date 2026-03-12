@@ -1,6 +1,7 @@
 ﻿using ClassDatabaseTask.EF;
 using ClassDatabaseTask.EF.Tables;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClassDatabaseTask.Controllers
 {
@@ -14,7 +15,7 @@ namespace ClassDatabaseTask.Controllers
 
         public IActionResult Index()
         {
-            var data = db.Products.ToList();
+            var data = db.Products.Include(p => p.CidNavigation).ToList();
             return View(data);
         }
 
@@ -69,6 +70,7 @@ namespace ClassDatabaseTask.Controllers
             TempData["Msg"] = id + " deleted successfully";
             return RedirectToAction("Index");
         }
+
 
     }
 }
