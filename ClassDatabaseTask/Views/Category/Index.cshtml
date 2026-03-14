@@ -12,6 +12,8 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>Details</th>
+        <th>Update</th>
     </tr>
 
     @foreach(var item in Model)
@@ -19,6 +21,8 @@
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
+            <td><a href="/Category/Details/@item.Id">Details</a></td>
+            <td><a href="/Category/Edit/@item.Id">Update</a></td>
         </tr>
     }
 </table>

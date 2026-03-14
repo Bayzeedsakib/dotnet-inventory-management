@@ -33,5 +33,27 @@ namespace ClassDatabaseTask.Controllers
             TempData["Msg"] = c.Name + " created successfully";
             return RedirectToAction("Index");
         }
+        public IActionResult Details(int id)
+        {
+            var data = (from c in db.Categories where c.Id == id select c).SingleOrDefault();
+            return View(data);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var data = db.Categories.Find(id);
+            return View(data);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Category c)
+        {
+            db.Categories.Update(c);
+            db.SaveChanges();
+
+            TempData["Msg"] = c.Id + " updated successfully";
+            return RedirectToAction("Index");
+        }
     }
 }

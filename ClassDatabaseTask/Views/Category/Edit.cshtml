@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Update Category</h1>
+
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id" /><br /><br />
+    <input type="text" name="Name" value="@Model.Name" /><br /><br />
+
+    <input type="submit" value="Edit" class="btn btn-primary" />
+</form>
+
