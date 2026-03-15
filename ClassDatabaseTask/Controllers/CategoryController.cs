@@ -55,5 +55,17 @@ namespace ClassDatabaseTask.Controllers
             TempData["Msg"] = c.Id + " updated successfully";
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var data = db.Categories.Find(id);
+            db.Categories.Remove(data);
+            db.SaveChanges();
+
+            TempData["Msg"] = id + " deleted successfully";
+            return RedirectToAction("Index");
+        }
+
     }
 }
